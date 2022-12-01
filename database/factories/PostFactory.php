@@ -18,7 +18,8 @@ class PostFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'content' => fake()->paragraph(),
+            'content' => fake()->realText(),
+            'created_at' => fake()->dateTimeBetween('-1 year', 'now'),
         ];
     }
 }
