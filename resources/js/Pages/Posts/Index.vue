@@ -1,5 +1,6 @@
 <script setup>
 import Pagination from '@/Components/Pagination.vue';
+import {Link} from '@inertiajs/inertia-vue3';
 // import moment from 'moment';
 
 defineProps({
@@ -12,9 +13,11 @@ defineProps({
 </script>
 
 <template>
-  <div class="overflow-hidden overflow-x-auto p-6 bg-white border-gray-200">
-    <div class="max-w-6xl align-middle mx-auto">
-      <h1 class="text-2xl font-bold mb-4">Posts</h1>
+  <div class="max-w-6xl overflow-hidden overflow-x-auto p-6 bg-white border-gray-200 mx-auto">
+    <Link :href="route('posts.index')">Post</Link>
+    <Link :href="route('page.about')" class="ml-2">About</Link>
+
+    <div class=" align-middle  mt-4">
       <table class="min-w-full divide-y divide-gray-200 border">
         <thead>
         <tr>

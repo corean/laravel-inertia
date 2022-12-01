@@ -39,3 +39,4 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::resource('posts', PostController::class);
+Route::inertia('about', 'Posts/About')->name('page.about');
