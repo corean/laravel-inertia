@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 .table-td {
-    @apply px-6 py-4 text-sm leading-5 text-gray-900
+    height: 5rem;
+    @apply px-6 text-sm leading-5 text-gray-900
 }
 .table-th {
     @apply px-6 py-3 bg-gray-50 text-left
