@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import {Head} from '@inertiajs/inertia-vue3';
+import {Head, Link} from '@inertiajs/inertia-vue3';
 import Pagination from '@/Components/Pagination.vue';
 // import AppLayout from '@/Layouts/App.vue';
 // import moment from 'moment';
@@ -15,12 +15,18 @@ defineProps({
 </script>
 
 <template>
-  <Head title="Post List" />
+  <Head title="Post List"/>
 
   <AuthenticatedLayout>
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white py-8 px-6 sm:rounded-lg  shadow-sm ">
+          <Link :href="route('posts.create')"
+                class="inline-block bg-indigo-500 text-white py-2 px-4 rounded-md border-transparent font-medium mb-2 text-sm shadow-sm shadow-indigo-200 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
+            New Post
+          </Link>
+
           <table class="min-w-full divide-y divide-gray-100 border">
             <thead>
             <tr>
@@ -45,6 +51,5 @@ defineProps({
         </div>
       </div>
     </div>
-
   </AuthenticatedLayout>
 </template>
