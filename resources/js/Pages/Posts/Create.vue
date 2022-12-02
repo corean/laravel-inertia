@@ -14,6 +14,12 @@ const submit = () => {
     },
   });
 };
+defineProps({
+  errors: {
+    type: Object,
+    default: () => ({}),
+  },
+});
 
 </script>
 <template>
@@ -31,6 +37,7 @@ const submit = () => {
                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                        name="title"
                        type="text"/>
+                <span v-if="errors.title" class="text-red-500 text-sm">{{ errors.title }}</span>
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700" for="content">Content</label>
@@ -41,6 +48,7 @@ const submit = () => {
                           placeholder="you@example.com"
                           rows="3"/>
                 </div>
+                <span v-if="errors.content" class="text-red-500 text-sm">{{ errors.content }}</span>
               </div>
             </div>
             <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
