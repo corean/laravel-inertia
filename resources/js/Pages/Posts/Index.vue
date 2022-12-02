@@ -22,7 +22,7 @@ defineProps({
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white py-8 px-6 sm:rounded-lg  shadow-sm ">
           <Link :href="route('posts.create')"
-                class="inline-block bg-indigo-500 text-white py-2 px-4 rounded-md border-transparent font-medium mb-2 text-sm shadow-sm shadow-indigo-200 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                class="inline-flex justify-center bg-indigo-500 text-white py-2 px-4 rounded-md border-transparent font-medium mb-2 text-sm shadow-sm shadow-indigo-200 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             New Post
           </Link>
