@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -23,14 +24,10 @@ class PostController extends Controller
         return Inertia::render('Posts/Create');
     }
 
-    public function store(Request $request): \Symfony\Component\HttpFoundation\Response
+    public function store(StorePostRequest $request): \Symfony\Component\HttpFoundation\Response
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
-
-        Post::create($request->all());
+        sleep(3);
+        Post::create($request->validated());
 
         return redirect()->route('posts.index');
     }
