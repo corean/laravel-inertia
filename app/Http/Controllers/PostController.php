@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class PostController extends Controller
@@ -26,9 +25,11 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request): \Symfony\Component\HttpFoundation\Response
     {
-        sleep(3);
+        // sleep(1);
         Post::create($request->validated());
 
-        return redirect()->route('posts.index');
+        return redirect()
+            ->route('posts.index')
+            ->with('success', 'Post created successfully.');
     }
 }
