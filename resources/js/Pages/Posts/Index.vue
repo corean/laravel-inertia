@@ -2,6 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3'
 import Pagination from '@/Components/Pagination.vue'
+import { Inertia } from '@inertiajs/inertia'
 // import AppLayout from '@/Layouts/App.vue';
 // import moment from 'moment';
 
@@ -11,6 +12,12 @@ defineProps({
     default: () => ({}),
   },
 })
+
+const deletePost = (id) => {
+  if (confirm('Are you sure you want to delete this post?')) {
+    Inertia.delete(route('posts.destroy', id))
+  }
+}
 </script>
 
 <template>
@@ -37,6 +44,7 @@ defineProps({
                 <th class="table-th">title</th>
                 <th class="table-th">content</th>
                 <th class="table-th" style="width: 12em">date</th>
+                <th class="table-th"></th>
               </tr>
             </thead>
             <tbody class="divide-gray-20 divide-y divide-solid bg-white">
@@ -46,6 +54,15 @@ defineProps({
                 <td class="table-td">{{ post.content }}</td>
                 <!--<td class="table-td">{{ moment(post.created_at).format('YYYY-MM-DD') }}</td>-->
                 <td class="table-td">{{ post.created_at }}</td>
+                <td>
+                  <button
+                    type="button"
+                    @click="deletePost(post.id)"
+                    class="rounded bg-red-600 px-2 py-1 text-sm font-bold uppercase text-white"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>

@@ -32,4 +32,13 @@ class PostController extends Controller
             ->route('posts.index')
             ->with('success', 'Post created successfully.');
     }
+
+    public function destroy(Post $post): \Symfony\Component\HttpFoundation\Response
+    {
+        $post->delete();
+
+        return redirect()
+            ->route('posts.index')
+            ->with('success', 'Post deleted successfully.');
+    }
 }
