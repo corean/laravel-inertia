@@ -55,13 +55,18 @@ const deletePost = (id) => {
                 <!--<td class="table-td">{{ moment(post.created_at).format('YYYY-MM-DD') }}</td>-->
                 <td class="table-td">{{ post.created_at }}</td>
                 <td>
-                  <button
-                    type="button"
+                  <Link
+                    :href="route('posts.edit', post.id)"
+                    class="mr-2 rounded bg-blue-600 px-2 py-1 text-sm font-bold uppercase text-white"
+                  >
+                    Edit
+                  </Link>
+                  <Link
                     @click="deletePost(post.id)"
                     class="rounded bg-red-600 px-2 py-1 text-sm font-bold uppercase text-white"
                   >
                     Delete
-                  </button>
+                  </Link>
                 </td>
               </tr>
             </tbody>

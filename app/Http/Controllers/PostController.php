@@ -13,9 +13,7 @@ class PostController extends Controller
     {
         $posts = PostResource::collection(Post::latest()->paginate(10));
         // $posts = Post::latest()->paginate(10);
-        return Inertia::render('Posts/Index', [
-            'posts' => $posts,
-        ]);
+        return Inertia::render('Posts/Index', compact('posts'));
     }
 
     public function create(): \Inertia\Response
@@ -40,5 +38,19 @@ class PostController extends Controller
         return redirect()
             ->route('posts.index')
             ->with('success', 'Post deleted successfully.');
+    }
+
+    public function edit(Post $post)
+    {
+        return Inertia::render('Posts/Edit', compact('post'));
+    }
+
+    public function update(Post $post, StorePostRequest $request): \Symfony\Component\HttpFoundation\Response
+    {
+        $post->update($request->validated());
+
+        return redirect()
+            ->route('posts.index')
+            ->with('success', 'Post updated successfully.');
     }
 }
