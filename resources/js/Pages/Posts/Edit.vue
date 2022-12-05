@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
-import { useForm } from '@inertiajs/inertia-vue3'
+import { Head, useForm } from '@inertiajs/inertia-vue3'
 
 const props = defineProps({
   post: {
@@ -17,7 +17,9 @@ const form = useForm(props.post)
 </script>
 
 <template>
-  <Head title="Post Create" />
+  <Head>
+    <title>Post Create</title>
+  </Head>
   <AuthenticatedLayout>
     <div class="py-12">
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -41,9 +43,9 @@ const form = useForm(props.post)
                   name="title"
                   type="text"
                 />
-                <span v-if="errors.title" class="text-sm text-red-600">{{
-                  errors.title
-                }}</span>
+                <span v-if="errors.title" class="text-sm text-red-600">
+                  {{ errors.title }}
+                </span>
               </div>
               <div>
                 <label
@@ -61,9 +63,9 @@ const form = useForm(props.post)
                     rows="3"
                   />
                 </div>
-                <span v-if="errors.content" class="text-sm text-red-600">{{
-                  errors.content
-                }}</span>
+                <span v-if="errors.content" class="text-sm text-red-600">
+                  {{ errors.content }}
+                </span>
               </div>
             </div>
             <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">

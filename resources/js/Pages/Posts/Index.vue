@@ -1,8 +1,8 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 import { Head, Link } from '@inertiajs/inertia-vue3'
-import Pagination from '@/Components/Pagination.vue'
 import { Inertia } from '@inertiajs/inertia'
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
+import Pagination from '@/Components/Pagination.vue'
 // import AppLayout from '@/Layouts/App.vue';
 // import moment from 'moment';
 
@@ -21,7 +21,9 @@ const deletePost = (id) => {
 </script>
 
 <template>
-  <Head title="Post List" />
+  <Head>
+    <title>Post List</title>
+  </Head>
 
   <AuthenticatedLayout>
     <div class="py-12">

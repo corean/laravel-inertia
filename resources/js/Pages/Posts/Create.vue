@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
-import { useForm } from '@inertiajs/inertia-vue3'
+import { Head, useForm } from '@inertiajs/inertia-vue3'
 
 const form = useForm({
   title: '',
@@ -22,7 +22,9 @@ defineProps({
 })
 </script>
 <template>
-  <Head title="Post Create" />
+  <Head>
+    <title>Post Create</title>
+  </Head>
 
   <AuthenticatedLayout>
     <div class="py-12">
